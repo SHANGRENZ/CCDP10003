@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0q1rkqqv0baa"]
+[gd_scene load_steps=6 format=3 uid="uid://c0q1rkqqv0baa"]
 
 [ext_resource type="PackedScene" uid="uid://culixiwe0m1p0" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://cw11x5gunmfx0" path="res://resources/images/background.png" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://dmb52ywws1smp" path="res://scenes/enemy.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://i1ky7xsa4qfx" path="res://scenes/music_controller.tscn" id="4_iywne"]
 [ext_resource type="Script" uid="uid://dtnrf8x23gkmk" path="res://scripts/music_controller.gd" id="5_p57ef"]
 
@@ -16,9 +17,8 @@ zoom = Vector2(1.125, 1.125)
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 
+[node name="Enemy" parent="." instance=ExtResource("3_lnu2h")]
+position = Vector2(457, -6)
+
 [node name="MusicController" parent="." instance=ExtResource("4_iywne")]
 script = ExtResource("5_p57ef")
-
-[node name="Timer" type="Timer" parent="MusicController"]
-
-[connection signal="timeout" from="MusicController/Timer" to="MusicController" method="_on_timer_timeout"]
